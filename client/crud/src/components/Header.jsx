@@ -15,7 +15,9 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to={"/"}>Anasayfa</Link>
+              <Link style={{ textDecoration: "none" }} to={"/"}>
+                Anasayfa
+              </Link>
             </Nav.Link>
             <NavDropdown title="Hakkımızda" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">ACM ?</NavDropdown.Item>
@@ -28,7 +30,9 @@ const Header = () => {
             <Nav.Link href="#duyurular">Duyurular</Nav.Link>
             <Nav.Link href="#blog">Blog</Nav.Link>
             <Nav.Link href="#iletişim">İletişim</Nav.Link>
-            <Button>Sign İn</Button>
+            <Link to={"/auth"}>
+              <Button>Sign İn</Button>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
