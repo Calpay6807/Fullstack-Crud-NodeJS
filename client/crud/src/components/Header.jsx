@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
@@ -7,6 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [auth, setAuth] = useState(true);
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -30,9 +31,15 @@ const Header = () => {
             <Nav.Link href="#duyurular">Duyurular</Nav.Link>
             <Nav.Link href="#blog">Blog</Nav.Link>
             <Nav.Link href="#iletişim">İletişim</Nav.Link>
-            <Link to={"/auth"}>
-              <Button>Sign İn</Button>
-            </Link>
+            {auth ? (
+              <Link to={"/signin"}>
+                <Button onClick={() => setAuth(false)}>Sign İn</Button>
+              </Link>
+            ) : (
+              <Link to={"/signup"}>
+                <Button onClick={() => setAuth(true)}>Sign Up</Button>
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
